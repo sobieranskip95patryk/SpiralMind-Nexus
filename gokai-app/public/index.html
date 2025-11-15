@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>META-GENIUSZ® – GOK:AI</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+  <div class="wrap">
+    <!-- Logo 3D (żeton) -->
+    <div class="logo">
+      <img src="assets/logo-3d.gif" alt="GOK:AI"/>
+    </div>
+
+    <!-- Centralne okno (kula/terminal) -->
+    <div class="orb">
+      <textarea id="prompt" rows="3" placeholder="Zadaj pytanie, intencję lub życzenie..."></textarea>
+      <div class="actions">
+        <button id="askBtn">🔮 Zapytaj</button>
+        <span id="loader" class="hide">ładowanie...</span>
+      </div>
+      <pre id="answer" aria-live="polite"></pre>
+    </div>
+
+    <!-- % sukcesu w prawym górnym rogu -->
+    <div class="meter" title="Szansa na sukces">
+      <span id="success">—%</span>
+    </div>
+  </div>
+
+  <script type="module" src="engine/consciousness.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

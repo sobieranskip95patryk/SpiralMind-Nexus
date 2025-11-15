@@ -1,0 +1,1 @@
+Tu wrzuć swoje pliki: logo-3d.gif, bg-stars.jpg (opcjonalnie).

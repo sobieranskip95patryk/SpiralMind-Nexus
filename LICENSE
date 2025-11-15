@@ -1,0 +1,165 @@
+                                 Licencja Apache
+                           Wersja 2.0, styczeń 2004
+                        http://www.apache.org/licenses/
+
+   WARUNKI UŻYWANIA, REPRODUKCJI I DYSTRYBUCJI
+
+   1. Definicje.
+
+      "Licencją" określa się niniejszą Licencję Apache w wersji 2.0.
+
+      "Licencjodawcą" określa się właściciela praw autorskich lub podmiot upoważniony
+      przez właściciela praw autorskich do udzielania licencji.
+
+      "Podmiotem prawnym" określa się związek działającego podmiotu oraz wszystkich
+      innych podmiotów, które kontrolują, są kontrolowane przez, lub są pod wspólną
+      kontrolą z tym podmiotem. Do celów tej definicji, "kontrola" oznacza (i) władzę,
+      bezpośrednią lub pośrednią, do kierowania lub zarządzania takim podmiotem,
+      czy to przez umowę czy w inny sposób, lub (ii) własność pięćdziesięciu procent (50%)
+      lub więcej wyemitowanych akcji, lub (iii) beneficial ownership takiego podmiotu.
+
+      "Tobą" (lub "Twoją") określa się osobę fizyczną lub Podmiot prawny
+      korzystający z uprawnień udzielonych niniejszą Licencją.
+
+      "Źródłem" określa się preferowaną formę dokonywania modyfikacji,
+      włączając ale nie ograniczając się do kodu źródłowego oprogramowania,
+      źródła dokumentacji i plików konfiguracyjnych.
+
+      "Formularzem obiektu" określa się każdą formę wynikającą z mechanicznych
+      przekształceń lub tłumaczeń Źródła, włączając ale nie ograniczając się
+      do skompilowanego kodu obiektu, wygenerowanej dokumentacji,
+      i konwersji do innych typów mediów.
+
+      "Pracą" określa się pracę autorską, czy to w formie Źródła czy Formularza obiektu,
+      udostępnioną pod Licencją, jak wskazano przez informację o prawach autorskich,
+      która jest dołączona do lub związana z pracą (przykład jest dostarczony
+      w Dodatku poniżej).
+
+      "Pracami pochodnymi" określa się każdą pracę, czy to w formie Źródła czy Formularza obiektu,
+      która jest oparta na (lub pochodzi z) Pracy i dla której redakcyjne rewizje,
+      adnotacje, elaboracje, lub inne modyfikacje reprezentują, jako całość,
+      oryginalną pracę autorską. Do celów tej Licencji, Prace pochodne nie obejmują
+      prac, które pozostają separowalne od, lub jedynie łączą się z (lub łączą się według nazwy)
+      interfejsami Pracy i Pracami pochodnymi tej Pracy.
+
+      "Składką" określa się każdą pracę autorską, włączając
+      oryginalną wersję Pracy i każde modyfikacje lub dodatki
+      do tej Pracy lub Prac pochodnych tej Pracy, która jest celowo
+      przekazana Licencjodawcy w celu włączenia w Pracy przez właściciela praw autorskich
+      lub przez osobę fizyczną lub Podmiot prawny upoważniony do przekazania w imieniu
+      właściciela praw autorskich. Do celów tej definicji, "celowo przekazane"
+      oznacza każdą formę elektronicznej, ustnej, lub pisemnej komunikacji wysłanej
+      do Licencjodawcy lub jego przedstawicieli, włączając ale nie ograniczając się do
+      komunikacji na elektronicznych listach mailingowych, systemach kontroli kodu źródłowego,
+      i systemach śledzenia problemów, które są zarządzane przez, lub w imieniu,
+      Licencjodawcy w celu omawiania i ulepszania Pracy, ale
+      wykluczając komunikację, która jest w sposób widoczny oznaczona lub inaczej
+      wyznaczona na piśmie przez właściciela praw autorskich jako "Nie składka."
+
+      "Kontrybutorem" określa się Licencjodawcę i każdą osobę fizyczną lub Podmiot prawny
+      w imieniu którego Składka została otrzymana przez Licencjodawcę i
+      następnie włączona w Pracy.
+
+   2. Udzielanie Licencji na Prawa Autorskie. Każdy Kontrybutor niniejszym udziela Tobie
+      nieograniczonej, światowej, niewyłącznej, bezpłatnej, bezwzględnej, nieodwołalnej
+      licencji na prawa autorskie do używania, reprodukcji, wyświetlania, wykonywania,
+      podlicencjonowania, i dystrybucji Pracy i takich Prac pochodnych w formie Źródła lub Obiektu.
+
+   3. Udzielanie Licencji na Patenty. Każdy Kontrybutor niniejszym udziela Tobie
+      nieograniczonej, światowej, niewyłącznej, bezpłatnej, bezwzględnej, nieodwołalnej
+      (poza przypadkami określonymi w tym paragrafie) licencji patentowej do tworzenia, robienia,
+      używania, oferowania do sprzedaży, sprzedawania, importowania, i innej dystrybucji
+      Pracy, gdzie taka licencja odnosi się tylko do tych roszczeń patentowych
+      licencjonowanych przez takiego Kontrybutora, które są koniecznie naruszane przez
+      ich Składkę(i) samą lub przez połączenie ich Składki(i)
+      z Pracą do której taka Składka(i) została przekazana.
+
+   4. Redystrybucja. Możesz reprodukować i dystrybuować kopie Pracy lub Prac pochodnych
+      tej Pracy w każdym medium, z lub bez modyfikacji, i w formie Źródła lub Obiektu,
+      pod warunkiem, że spełnisz następujące warunki:
+
+      (a) Musisz dać każdemu odbiorcy Pracy lub Prac pochodnych kopię tej Licencji; i
+
+      (b) Musisz sprawić, że każdy zmodyfikowany plik niesie widoczne informacje
+          stwierdzające, że zmieniłeś pliki; i
+
+      (c) Musisz zachować, w formie Źródła każdej Pracy pochodnej, którą dystrybuujesz,
+          wszystkie informacje o prawach autorskich, patentach, znakach towarowych, i atrybucjach
+          z formy Źródła Pracy, wykluczając te informacje, które nie odnoszą się do
+          żadnej części Prac pochodnych; i
+
+      (d) Jeśli Praca zawiera plik "NOTICE" jako część swojej dystrybucji, to każda
+          Praca pochodna dystrybuowana przez Ciebie musi zawierać czytelną kopię
+          informacji o atrybucjach zawartych w takim pliku NOTICE, wykluczając
+          te informacje, które nie odnoszą się do żadnej części Prac pochodnych,
+          w co najmniej jednym z następujących miejsc: w pliku tekstowym NOTICE
+          dystrybuowanym jako część Prac pochodnych; w formie Źródła lub
+          dokumentacji, jeśli jest dostarczana wraz z Pracami pochodnymi; lub,
+          w wyświetlaniu generowanym przez Prace pochodne, jeśli i gdzie takie
+          informacje o osobach trzecich normalnie się pojawiają. Zawartość
+          pliku NOTICE jest przeznaczona tylko do celów informacyjnych i
+          nie modyfikuje Licencji.
+
+   5. Składanie Składek. Chyba że wyraźnie stwierdzisz inaczej, każda Składka
+      celowo przekazana w celu włączenia w Pracy przez Ciebie do Licencjodawcy
+      będzie pod warunkami i uwarunkowaniami tej Licencji, bez żadnych dodatkowych
+      warunków lub uwarunkowań.
+
+   6. Znaki towarowe. Ta Licencja nie udziela pozwolenia na używanie nazw handlowych,
+      znaków towarowych, znaków usługowych, lub nazw produktów Licencjodawcy,
+      poza tym, co jest wymagane dla rozsądnego i zwyczajowego użycia w opisywaniu
+      pochodzenia Pracy i reprodukowaniu zawartości pliku NOTICE.
+
+   7. Zastrzeżenie Gwarancji. Chyba że jest to wymagane przez obowiązujące prawo lub
+      uzgodnione na piśmie, Licencjodawca dostarcza Pracę (i każdy
+      Kontrybutor dostarcza swoje Składki) na zasadzie "TAK JAK JEST",
+      BEZ GWARANCJI LUB WARUNKÓW ŻADNEGO RODZAJU, wyraźnych lub dorozumianych,
+      włączając, bez ograniczenia, każde gwarancje lub warunki TYTUŁU, NIENARUSZANIA,
+      PRZYDATNOŚCI HANDLOWEJ, lub PRZYDATNOŚCI DO OKREŚLONEGO CELU.
+
+   8. Ograniczenie Odpowiedzialności. W żadnym wypadku i pod żadną teorią prawną,
+      czy to w czynach niedozwolonych (włączając zaniedbanie), umowie, lub inaczej,
+      chyba że jest to wymagane przez obowiązujące prawo (takie jak celowe i rażąco
+      niedbałe czyny) lub uzgodnione na piśmie, żaden Kontrybutor nie będzie
+      odpowiedzialny wobec Ciebie za szkody, włączając każde bezpośrednie, pośrednie,
+      specjalne, przypadkowe, lub wynikowe szkody każdego charakteru wynikające z tej
+      Licencji lub z używania lub niemożności używania Pracy (włączając ale nie
+      ograniczając się do szkód za utratę goodwill, zatrzymanie pracy, awarie komputera
+      lub nieprawidłowe działanie, lub każde i wszystkie inne komercyjne szkody lub straty),
+      nawet jeśli taki Kontrybutor został poinformowany o możliwości takich szkód.
+
+   9. Przyjmowanie Gwarancji lub Dodatkowej Odpowiedzialności. Podczas redystrybucji
+      Pracy lub Prac pochodnych tej Pracy, możesz wybrać oferowanie, i pobieranie opłaty za,
+      akceptację wsparcia, gwarancji, odszkodowania, lub innych zobowiązań odpowiedzialności
+      i/lub praw zgodnych z tą Licencją. Jednak, w przyjmowaniu takich zobowiązań, możesz
+      działać tylko w swoim własnym imieniu i na swoją wyłączną odpowiedzialność, nie w imieniu
+      żadnego innego Kontrybutora, i tylko jeśli zgadzasz się zabezpieczyć, bronić, i
+      trzymać nieszkodliwym każdego Kontrybutora za każdą odpowiedzialność
+      poniesioną przez, lub roszczenia stawiane przeciwko, takiemu Kontrybutorowi z powodu
+      twojego przyjęcia takiej gwarancji lub dodatkowej odpowiedzialności.
+
+   KONIEC WARUNKÓW I UWARUNKOWAŃ
+
+   DODATEK: Jak zastosować Licencję Apache do twojej pracy.
+
+      Aby zastosować Licencję Apache do twojej pracy, załącz następującą
+      informację, z polami otoczonymi nawiasami "[]"
+      zastąpionymi twoimi własnymi informacjami identyfikującymi. (Nie włączaj
+      nawiasów!) Tekst powinien być otoczony odpowiednią
+      składnią komentarza dla formatu pliku. Zalecamy też, żeby
+      nazwa pliku lub klasa była zawarta na tej samej "drukowanej stronie" co
+      informacja o prawach autorskich dla łatwiejszej identyfikacji w archiwach trzecich.
+
+   Copyright [yyyy] [nazwa właściciela praw autorskich]
+
+   Licencjonowane pod Licencją Apache, Wersja 2.0 ("Licencja");
+   nie możesz używać tego pliku poza zgodą z Licencją.
+   Możesz uzyskać kopię Licencji pod adresem
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+   Chyba że jest to wymagane przez obowiązujące prawo lub uzgodnione na piśmie, oprogramowanie
+   dystrybuowane pod Licencją jest dystrybuowane na zasadzie "TAK JAK JEST",
+   BEZ GWARANCJI LUB WARUNKÓW ŻADNEGO RODZAJU, wyraźnych lub dorozumianych.
+   Zobacz Licencję dla określonego języka regulującego pozwolenia i
+   ograniczenia pod Licencją.
