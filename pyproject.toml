@@ -1,7 +1,3 @@
-"""
-pyproject.toml - Project configuration for SpiralMind Nexus v0.2.0
-"""
-
 [project]
 name = "spiralmind-nexus"
 version = "0.2.0"
