@@ -1,0 +1,228 @@
+name: CI/CD Pipeline
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main, develop ]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ["3.9", "3.10", "3.11"]
+
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: Set up Python ${{ matrix.python-version }}
+      uses: actions/setup-python@v4
+      with:
+        python-version: ${{ matrix.python-version }}
+    
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+        pip install pytest pytest-cov pytest-asyncio
+    
+    - name: Run linting
+      run: |
+        pip install flake8 black isort
+        flake8 spiral tests --max-line-length=120 --ignore=E203,W503
+        black --check spiral tests
+        isort --check-only spiral tests
+    
+    - name: Run tests with coverage
+      run: |
+        pytest tests/ --cov=spiral --cov-report=xml --cov-report=html -v
+    
+    - name: Upload coverage to Codecov
+      uses: codecov/codecov-action@v3
+      with:
+        file: ./coverage.xml
+        flags: unittests
+        name: codecov-umbrella
+        fail_ci_if_error: false
+
+  security:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: "3.10"
+    
+    - name: Install security tools
+      run: |
+        python -m pip install --upgrade pip
+        pip install bandit safety
+    
+    - name: Run security scan
+      run: |
+        bandit -r spiral/
+        safety check
+
+  build:
+    needs: [test, security]
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: "3.10"
+    
+    - name: Install build dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install build twine
+    
+    - name: Build package
+      run: |
+        python -m build
+    
+    - name: Check package
+      run: |
+        twine check dist/*
+    
+    - name: Upload build artifacts
+      uses: actions/upload-artifact@v3
+      with:
+        name: dist-${{ github.sha }}
+        path: dist/
+
+  docker:
+    needs: [test, security]
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: Set up Docker Buildx
+      uses: docker/setup-buildx-action@v2
+    
+    - name: Build Docker image
+      run: |
+        docker build -t spiralmind-nexus:${{ github.sha }} .
+    
+    - name: Test Docker image
+      run: |
+        docker run --rm spiralmind-nexus:${{ github.sha }} spiral --version
+        docker run --rm spiralmind-nexus:${{ github.sha }} spiral --text "Hello Docker" --format json
+    
+    - name: Login to Docker Hub
+      if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+      uses: docker/login-action@v2
+      with:
+        username: ${{ secrets.DOCKER_USERNAME }}
+        password: ${{ secrets.DOCKER_PASSWORD }}
+    
+    - name: Push to Docker Hub
+      if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+      run: |
+        docker tag spiralmind-nexus:${{ github.sha }} spiralmind/nexus:latest
+        docker tag spiralmind-nexus:${{ github.sha }} spiralmind/nexus:${{ github.sha }}
+        docker push spiralmind/nexus:latest
+        docker push spiralmind/nexus:${{ github.sha }}
+
+  performance:
+    needs: test
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: "3.10"
+    
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+        pip install pytest-benchmark
+    
+    - name: Run performance tests
+      run: |
+        python -c "
+        import time
+        from spiral import execute, batch_execute
+        
+        # Basic performance test
+        texts = ['Sample text for testing'] * 100
+        
+        start = time.time()
+        results = batch_execute(texts, parallel=True)
+        duration = time.time() - start
+        
+        print(f'Processed {len(texts)} texts in {duration:.2f}s')
+        print(f'Average: {duration/len(texts)*1000:.2f}ms per text')
+        
+        # Verify all successful
+        successful = sum(1 for r in results if r.get('success'))
+        print(f'Success rate: {successful}/{len(texts)} ({successful/len(texts)*100:.1f}%)')
+        
+        # Performance assertions
+        assert duration < 30.0, f'Batch processing too slow: {duration:.2f}s'
+        assert successful >= len(texts) * 0.95, f'Success rate too low: {successful/len(texts)*100:.1f}%'
+        "
+
+  deploy:
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    needs: [build, docker, performance]
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: Download build artifacts
+      uses: actions/download-artifact@v3
+      with:
+        name: dist-${{ github.sha }}
+        path: dist/
+    
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: "3.10"
+    
+    - name: Publish to PyPI
+      env:
+        TWINE_USERNAME: __token__
+        TWINE_PASSWORD: ${{ secrets.PYPI_API_TOKEN }}
+      run: |
+        pip install twine
+        twine upload dist/* --skip-existing
+    
+    - name: Create GitHub Release
+      if: startsWith(github.ref, 'refs/tags/v')
+      uses: actions/create-release@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        tag_name: ${{ github.ref }}
+        release_name: Release ${{ github.ref }}
+        draft: false
+        prerelease: false
+        body: |
+          ## Changes in this release
+          - Automated release from CI/CD pipeline
+          - See commit history for detailed changes
+          
+          ## Installation
+          ```bash
+          pip install spiralmind-nexus==${{ github.ref_name }}
+          ```
+          
+          ## Docker
+          ```bash
+          docker pull spiralmind/nexus:${{ github.sha }}
+          ```
